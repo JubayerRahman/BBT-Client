@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import logo from "../../assets/img/logo.png"
+import { AuthContent } from '../../Pages/AuthProvider/AuthProvider'
 
 const Navbar = () => {
+
+  const {user, SighOut}= useContext(AuthContent)
 
     const NavlinksLi =
     <div className='flex flex-wrap justify-evenly items-center'>
@@ -10,7 +13,18 @@ const Navbar = () => {
     <li className='text-xl text-white font-bold'><NavLink to='/about' className="">ABOUT</NavLink> </li>
     <li className='text-xl text-white font-bold'><NavLink to='/add-product' className="">ADD PRODUCT</NavLink></li>
     <li className='text-xl text-white'><NavLink to='/cart'><i className="fa-solid fa-basket-shopping text-2xl"></i></NavLink></li>
-    <li className='block md:hidden text-white'><NavLink to='/log-in' className=""><i className="fa-solid fa-right-to-bracket text-xl md:text-2xl"></i></NavLink></li>
+    {
+      user ?
+      <div className='flex justify-evenly items-start gap-5 md:hidden'>
+        <div className="flex flex-col justify-center items-center">
+        <img className='w-[50px] h-[50px] rounded-full' src={user.photoURL}/>
+        <h1 className='text-xl text-white font-[500]'>{user.displayName}</h1>
+        </div>
+        <button onClick={SighOut} className='btn bg-red-400 text-white' >Log Out</button>
+      </div>
+      :
+      <li className='block md:hidden text-white'><NavLink to='/log-in' className=""><i className="fa-solid fa-right-to-bracket text-xl md:text-2xl"></i></NavLink></li>
+    }
     </div>
   return (
     <div className='container mx-auto mt-3'>
@@ -39,7 +53,18 @@ const Navbar = () => {
   </div>
   <div className=" hidden md:flex  md:navbar-end">
     <div className='hidden md:flex justify-between'>
-    <NavLink to='/log-in' className="text-white"><i className="fa-solid fa-right-to-bracket text-xl md:text-2xl"></i></NavLink>
+      {
+        user?
+        <div className='md:flex justify-evenly items-start gap-5 sm:hidden'>
+        <div className="flex flex-col justify-center items-center">
+        <img className='w-[50px] h-[50px] rounded-full' src={user.photoURL}/>
+        <h1 className='text-xl text-white font-[500]'>{user.displayName}</h1>
+        </div>
+        <button onClick={SighOut} className='btn bg-red-400 text-white' >Log Out</button>
+      </div>
+        :
+    <NavLink  to='/log-in' className="text-white"><i className="fa-solid fa-right-to-bracket text-xl md:text-2xl"></i></NavLink>
+      }
     </div>
   </div>
 </div>

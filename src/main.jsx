@@ -10,6 +10,8 @@ import Cart from './Pages/Cart/Cart.jsx'
 import Registration from './Pages/Registration/Registration.jsx'
 import About from './Pages/About/About.jsx'
 import Brands from './Pages/Brands/Brands.jsx'
+import AuthProvider from './Pages/AuthProvider/AuthProvider.jsx'
+import PrivateRoutes from './Components/PrivateRoutes/PrivateRoutes.jsx'
 
 const routes = createBrowserRouter([
   {
@@ -27,7 +29,7 @@ const routes = createBrowserRouter([
       },
       {
         path:"/:id",
-        element:<Brands/>
+        element:<PrivateRoutes><Brands/></PrivateRoutes>
       },
       {
         path:"/add-product",
@@ -51,6 +53,8 @@ const routes = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={routes} />
+    <AuthProvider>
+      <RouterProvider router={routes} />
+    </AuthProvider>
   </React.StrictMode>,
 )

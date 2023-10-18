@@ -8,16 +8,16 @@ const HomeProducts = () => {
     const brandData = useLoaderData()
   return (
     <div className="products">
-      <h1 className="text-center text-5xl text-white mt-[50px] mb-[50px]">Brans we provide</h1>
+      <h1 className="text-center text-3xl md:text-5xl text-white mt-[50px] mb-[50px]">Brands we provide</h1>
         <div className="flex container flex-col md:flex-row md:w-[70%] mx-auto mb-[50px]">
-        <div className="flex md:w-[30%] p-[10px] flex-col text-2xl text-white brandNames">
+        <div className="flex md:w-[30%] p-[20px] flex-col text-2xl text-white brandNames">
           {
             brandData.map(brand=> 
             <a key={brand.id} href={`#${brand.id}`}>{brand.name}</a>
             )
           }
         </div>
-        <div className="brandCards md:w-[75%] h-[450px] overflow-y-scroll scroll-m-5 p-[10px] gap-5">
+        <div className="brandCards md:w-[75%] h-[500px] overflow-y-scroll scroll-m-5 p-[10px] gap-5">
         {
             brandData.map(brand => 
             <div key={brand.id} id={brand.id} className="card bg-base-100 shadow-2xl shadow-gray-500 mb-[50px]">
@@ -27,9 +27,9 @@ const HomeProducts = () => {
                     <h2 className="card-title">{brand.name}</h2>
                     <p>{brand.description}</p>
                 </div>
-              <div className=" w-[75%] h-full">
+              <div className=" w-[50%] h-[100px]">
                 <Link className="h-full w-[100%]" to={`${brand.id}`}>
-                    <button className="btn bg-[#FF2A39] text-white text-3xl  h-full w-[100%]"><i className="fa-solid fa-arrow-right"></i></button>
+                    <button className="btn bg-[#FF2A39] text-white text-3xl  h-[100%] w-[100%]"><i className="fa-solid fa-arrow-right"></i></button>
                 </Link>
               </div>
             </div>
