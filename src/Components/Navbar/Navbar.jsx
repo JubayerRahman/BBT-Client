@@ -5,8 +5,9 @@ import logo from "../../assets/img/logo.png"
 const Navbar = () => {
 
     const NavlinksLi =
-    <div className='flex justify-evenly items-center'>
+    <div className='flex flex-wrap justify-evenly items-center'>
     <li className='text-xl text-white font-bold'><NavLink to='/' className="">HOME</NavLink> </li>
+    <li className='text-xl text-white font-bold'><NavLink to='/about' className="">ABOUT</NavLink> </li>
     <li className='text-xl text-white font-bold'><NavLink to='/add-product' className="">ADD PRODUCT</NavLink></li>
     <li className='text-xl text-white'><NavLink to='/cart'><i className="fa-solid fa-basket-shopping text-2xl"></i></NavLink></li>
     <li className='block md:hidden text-white'><NavLink to='/log-in' className=""><i className="fa-solid fa-right-to-bracket text-xl md:text-2xl"></i></NavLink></li>

@@ -1,0 +1,17 @@
+*{
+    scroll-behavior: smooth;
+}
+.brandNames a:hover, .brandNames a:active{
+    font-size: 30px;
+    color: white;
+    transition: all 0.5s ease;
+}
+
+.brandCards::-webkit-scrollbar{
+        width: 0;
+        display: none;
+}
+
+.brandCards{
+    scrollbar-width: none;
+}

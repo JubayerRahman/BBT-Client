@@ -1,0 +1,39 @@
+[
+    {
+      "id": 1,
+      "image": "https://i.ibb.co/y4WD0jZ/toyota-Logo.jpg",
+      "name": "Toyota",
+      "description": "Toyota, a leading automaker, is known for its reliable and fuel-efficient vehicles."
+    },
+    {
+      "id": 2,
+      "image": "https://i.ibb.co/LdXLQKn/FordLogo.jpg",
+      "name": "Ford",
+      "description": "Ford has a rich history of producing innovative cars, trucks, and SUVs."
+    },
+    {
+      "id": 3,
+      "image": "https://i.ibb.co/kB2FSmJ/mahindralogo.jpg",
+      "name": "Mahindra",
+      "description": "Mahindra specializes in rugged and versatile vehicles designed for various terrains."
+    },
+    {
+      "id": 4,
+      "image": "https://i.ibb.co/PzR9g1v/honda-Logo.jpg",
+      "name": "Honda",
+      "description": "Honda is known for its well-engineered cars and motorcycles with a focus on performance and efficiency."
+    },
+    {
+      "id": 5,
+      "image": "https://i.ibb.co/YtzMj4f/bmwLogo.jpg",
+      "name": "BMW",
+      "description": "BMW offers luxury and high-performance vehicles, setting the standard for driving pleasure."
+    },
+    {
+      "id": 6,
+      "image": "https://i.ibb.co/HKP53z1/mercedes-Logo.jpg",
+      "name": "Mercedes-Benz",
+      "description": "Mercedes-Benz, the epitome of German engineering, produces premium and innovative cars."
+    }
+  ]
+  

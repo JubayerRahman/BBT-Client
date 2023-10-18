@@ -1,0 +1,7 @@
+.bannerSection{
+    background-image: url(../../assets/img/bannerBg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 20px;
+}

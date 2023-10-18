@@ -8,6 +8,8 @@ import AddProduct from './Pages/AddProduct/AddProduct.jsx'
 import LogIn from './Pages/Login/LogIn.jsx'
 import Cart from './Pages/Cart/Cart.jsx'
 import Registration from './Pages/Registration/Registration.jsx'
+import About from './Pages/About/About.jsx'
+import Brands from './Pages/Brands/Brands.jsx'
 
 const routes = createBrowserRouter([
   {
@@ -16,7 +18,16 @@ const routes = createBrowserRouter([
     children:[
       {
         path:"/",
+        loader: ()=> fetch("/BrandsData.json"),
         element:<Home/>
+      },
+      {
+        path:"/about",
+        element:<About/>
+      },
+      {
+        path:"/:id",
+        element:<Brands/>
       },
       {
         path:"/add-product",
