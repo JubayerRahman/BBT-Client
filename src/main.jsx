@@ -14,11 +14,13 @@ import AuthProvider from './Pages/AuthProvider/AuthProvider.jsx'
 import PrivateRoutes from './Components/PrivateRoutes/PrivateRoutes.jsx'
 import SingleProduct from './Pages/SingleProduct/SingleProduct.jsx'
 import Updateproduct from './Pages/UpdateProduct/Updateproduct.jsx'
+import ErrorPage from './Pages/ErrorPage/ErrorPage.jsx'
 
 const routes = createBrowserRouter([
   {
     path:'/',
     element:<App/>,
+    errorElement:<ErrorPage/>,
     children:[
       {
         path:"/",
