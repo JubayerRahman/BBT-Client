@@ -12,6 +12,7 @@ import About from './Pages/About/About.jsx'
 import Brands from './Pages/Brands/Brands.jsx'
 import AuthProvider from './Pages/AuthProvider/AuthProvider.jsx'
 import PrivateRoutes from './Components/PrivateRoutes/PrivateRoutes.jsx'
+import SingleProduct from './Pages/SingleProduct/SingleProduct.jsx'
 
 const routes = createBrowserRouter([
   {
@@ -29,7 +30,13 @@ const routes = createBrowserRouter([
       },
       {
         path:"/:id",
-        element:<PrivateRoutes><Brands/></PrivateRoutes>
+        element:<Brands/>,
+        loader:()=> fetch("http://localhost:5000/products")
+      },
+      {
+        path:"/:id/:id",
+        element: <PrivateRoutes><SingleProduct/></PrivateRoutes>,
+        loader:({params})=> fetch(`http://localhost:5000/products/${params.id}`)
       },
       {
         path:"/add-product",

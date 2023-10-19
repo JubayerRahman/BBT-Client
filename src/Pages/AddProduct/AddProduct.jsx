@@ -9,7 +9,7 @@ const AddProduct = () => {
     const Image = e.target.Image.value
     const name = e.target.name.value
     const brandName = e.target.brandName.value
-    const type = e.target.type.value
+    const type = e.target.carType.value
     const price = e.target.price.value
     const rating = e.target.rating.value
     const shortDescription = e.target.ShortDescription.value
@@ -17,6 +17,7 @@ const AddProduct = () => {
     
 
     const Product ={Image, name, brandName, type, price, rating, shortDescription}
+    console.log(Product);
 
     fetch("http://localhost:5000/products",{
       method:"POST",
@@ -53,13 +54,12 @@ const AddProduct = () => {
               <option value="Mahindra">Mahindra</option>
               <option value="Honda">Honda</option>
               <option value="BMW">BMW</option>
-              <option value="BMW">BMW</option>
               <option value="Mercedes-Benz">Mercedes-Benz</option>
             </select>
           </div>
           <div className=" flex justify-center md:justify-end items-center md:gap-3">
             <label className="text-2xl text-white"  htmlFor='type'>Type:</label>
-            <select className="p-[10px] border-2 rounded-md text-white text-center text-xl" name="type" id='type'>
+            <select className="p-[10px] border-2 rounded-md text-white text-center text-xl" name="carType" id='type'>
               <option value="Sedan">Sedan</option>
               <option value="SUV">SUV</option>
               <option value="Hatchback">Hatchback</option>
