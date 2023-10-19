@@ -13,11 +13,15 @@ const Brands = () => {
   useEffect(()=>{
     const SelectCars = carData.filter(car => car.brandName ===pathName)
     setBrandShow(SelectCars)
-    if(brandShow.length>0){
-      setProductShow("hidden")
-    }
   },[])
   console.log(brandShow);
+
+ useEffect(()=>{
+  console.log(brandShow.length);
+  if(brandShow.length>0){
+    setProductShow("hidden")
+  }
+ },[brandShow])
 
   
   

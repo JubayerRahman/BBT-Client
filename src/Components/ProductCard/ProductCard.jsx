@@ -1,9 +1,13 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContent } from '../../Pages/AuthProvider/AuthProvider';
 
 const ProductCard = ({car}) => {
   const {Image, name, brandName, price, rating, shortDescription, type, _id}= car
-  console.log();
+  const navigator = useNavigate()
+  const goToUpdate = id =>{
+    navigator('/updateproduct')
+  }
   return (
     <div className='m-[20px] md:m-[0px]'>
       <div className="card card-side bg-black shadow-xl">
@@ -24,7 +28,9 @@ const ProductCard = ({car}) => {
     <p>Type: {type}</p>
     <div className="card-actions ">
       <Link to={`${_id}`}><button className="btn btn-primary">Details</button></Link>
-      <button className="btn btn-primary">Update</button>
+      <Link to={`/updateproduct/${_id}`}>  
+        <button onClick={()=>{goToUpdate(_id)}} className="btn btn-primary">Update</button>
+      </Link>
     </div>
   </div>
 </div>

@@ -5,13 +5,16 @@ const SingleProduct = () => {
     const DataDetails= useLoaderData()
     const {Image, name, brandName, price, rating, shortDescription, type} = DataDetails
 
+
     const SavetoCart =()=>{
+      const DatatoSave = {Image, name, brandName,price}
+      console.log(DatatoSave);
         fetch("http://localhost:5000/cart", {
             method:"POST",
             headers:{
                 "content-type":"application/json"
             },
-            body: JSON.stringify(DataDetails)
+            body: JSON.stringify(DatatoSave)
         })
         .then(res => res.json())
         .then(data=>{
