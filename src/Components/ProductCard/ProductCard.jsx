@@ -10,7 +10,7 @@ const ProductCard = ({car}) => {
   }
   return (
     <div className='m-[20px] md:m-[0px]'>
-      <div className="card card-side bg-black shadow-xl">
+      <div className="hidden md:flex card card-side bg-black shadow-xl">
   <figure className='w-[100%] md:w-1/2 ' 
   style={
     {backgroundImage:`url(${Image})`, 
@@ -34,7 +34,23 @@ const ProductCard = ({car}) => {
     </div>
   </div>
 </div>
+<div className="flex md:hidden card bg-base-100 shadow-xl">
+  <figure><img src={Image}/></figure>
+  <div className="card-body">
+  <h2 className="card-title">Name: {name}</h2>
+    <p>Brand: {brandName}</p>
+    <p>Price: {price}</p>
+    <p>Rating: {rating}</p>
+    <p>Type: {type}</p>
+    <div className="card-actions ">
+      <Link to={`${_id}`}><button className="btn bg-orange-600">Details</button></Link>
+      <Link to={`/updateproduct/${_id}`}>  
+        <button onClick={()=>{goToUpdate(_id)}} className="btn bg-red-600 ">Update</button>
+      </Link>
     </div>
+    </div>
+  </div>
+</div>
   )
 }
 
