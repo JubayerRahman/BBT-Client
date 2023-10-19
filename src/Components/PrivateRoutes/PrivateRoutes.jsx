@@ -3,7 +3,8 @@ import { useContext } from 'react'
 import { AuthContent } from '../../Pages/AuthProvider/AuthProvider'
 import { Navigate, useLocation } from 'react-router-dom'
 
-const PrivateRoutes = ({childern}) => {
+const PrivateRoutes = ({children}) => {
+    // console.log(childern);
     const{user, Loader} = useContext(AuthContent)
     const locationtoGo = useLocation()
 
@@ -18,7 +19,7 @@ const PrivateRoutes = ({childern}) => {
     if(user == null){
         return <Navigate state={locationtoGo.pathname} to="/log-in"/>
     }
-  return childern
+  return children
 }
 
 export default PrivateRoutes

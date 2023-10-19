@@ -1,3 +1,4 @@
+import Swal from "sweetalert2"
 
 
 const AddProduct = () => {
@@ -13,8 +14,26 @@ const AddProduct = () => {
     const rating = e.target.rating.value
     const shortDescription = e.target.ShortDescription.value
 
+    
+
     const Product ={Image, name, brandName, type, price, rating, shortDescription}
-    console.log(Product);
+
+    fetch("http://localhost:5000/products",{
+      method:"POST",
+      headers:{
+        "content-type":"application/json"
+      },
+      body: JSON.stringify(Product)
+    })
+    .then(res => res.json())
+    .then(data =>{
+      if(data.acknowledged){
+        Swal.fire({
+          title:"Product added successfully",
+          icon:"success"
+        })
+      }
+    })
   }
 
   return (
@@ -25,8 +44,19 @@ const AddProduct = () => {
           <input className=" w-full md:w-[50%] p-[10px] border-2 rounded-md text-white text-center text-xl" type='text' placeholder='Image' name='Image'/>
           <input className="w-full md:w-[50%] p-[10px] border-2 rounded-md text-white text-center text-xl" type='text' placeholder='Name' name='name'/>
         </div>
-        <div className='col2 w-full flex flex-col md:flex-row  gap-2 justify-between p-[20px]'>
-          <input className="w-full md:w-[85%] p-[10px] border-2 rounded-md text-white text-center text-xl" type='text' placeholder='Brand Name' name='brandName'/>
+        <div className='col2 w-full flex flex-col md:flex-row  gap-2 justify-evenly p-[20px]'>
+          <div className=" flex justify-center md:justify-end items-center md:gap-3">
+            <label className="text-2xl text-white"  htmlFor='type'>Brand:</label>
+            <select className="p-[10px] border-2 rounded-md text-white text-center text-xl" name="brandName" id='type'>
+              <option value="Toyota">Toyota</option>
+              <option value="Ford">Ford</option>
+              <option value="Mahindra">Mahindra</option>
+              <option value="Honda">Honda</option>
+              <option value="BMW">BMW</option>
+              <option value="BMW">BMW</option>
+              <option value="Mercedes-Benz">Mercedes-Benz</option>
+            </select>
+          </div>
           <div className=" flex justify-center md:justify-end items-center md:gap-3">
             <label className="text-2xl text-white"  htmlFor='type'>Type:</label>
             <select className="p-[10px] border-2 rounded-md text-white text-center text-xl" name="type" id='type'>

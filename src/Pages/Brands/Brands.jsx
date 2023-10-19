@@ -1,9 +1,10 @@
 import React from 'react'
+import SliderAdvertisement from '../../Components/SliderAdvertisement/SliderAdvertisement'
 
 const Brands = () => {
   return (
     <div>
-      <h1>I am Brands page</h1>
+      <SliderAdvertisement/>
     </div>
   )
 }

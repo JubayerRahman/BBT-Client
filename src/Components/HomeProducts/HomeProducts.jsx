@@ -28,7 +28,7 @@ const HomeProducts = () => {
                     <p>{brand.description}</p>
                 </div>
               <div className=" w-[50%] h-[100px]">
-                <Link className="h-full w-[100%]" to={`${brand.id}`}>
+                <Link className="h-full w-[100%]" to={`${brand.name}`}>
                     <button className="btn bg-[#FF2A39] text-white text-3xl  h-[100%] w-[100%]"><i className="fa-solid fa-arrow-right"></i></button>
                 </Link>
               </div>

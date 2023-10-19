@@ -33,13 +33,13 @@ const SliderAdvertisement = () => {
     <div className='mt-[50px] mb-[100px]'>
       <Carousel 
       swipeable={true}
-      draggable={false}
+      draggable={true}
       showDots={false}
       responsive={responsive}
       infinite={true}
-      autoPlaySpeed={1000}
+      autoPlaySpeed={500}
       keyBoardControl={true}
-      customTransition="all .5"
+      customTransition="all .5 ease-out"
       transitionDuration={500}
       containerClass="carousel-container"
       // removeArrowOnDeviceType={["tablet", "mobile"]}
