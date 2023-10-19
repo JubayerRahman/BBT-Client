@@ -9,7 +9,7 @@ const SingleProduct = () => {
     const SavetoCart =()=>{
       const DatatoSave = {Image, name, brandName,price}
       console.log(DatatoSave);
-        fetch("http://localhost:5000/cart", {
+        fetch("https://assignment-10-server-three-chi.vercel.app/cart", {
             method:"POST",
             headers:{
                 "content-type":"application/json"

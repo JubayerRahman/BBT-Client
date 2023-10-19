@@ -36,6 +36,7 @@ const AuthProvider = ({children}) => {
       setLoader(true)
       return signOut(auth)
     }
+    const [mode, SetMode]= useState()
 
     
     const userData ={
@@ -44,7 +45,9 @@ const AuthProvider = ({children}) => {
         Register,
         SignIn,
         googleSignIn,
-        SighOut
+        SighOut, 
+        mode,
+        SetMode
     }
     
   return (

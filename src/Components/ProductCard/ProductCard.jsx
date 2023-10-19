@@ -27,9 +27,9 @@ const ProductCard = ({car}) => {
     <p>Rating: {rating}</p>
     <p>Type: {type}</p>
     <div className="card-actions ">
-      <Link to={`${_id}`}><button className="btn btn-primary">Details</button></Link>
+      <Link to={`${_id}`}><button className="btn bg-orange-600">Details</button></Link>
       <Link to={`/updateproduct/${_id}`}>  
-        <button onClick={()=>{goToUpdate(_id)}} className="btn btn-primary">Update</button>
+        <button onClick={()=>{goToUpdate(_id)}} className="btn bg-red-600 ">Update</button>
       </Link>
     </div>
   </div>

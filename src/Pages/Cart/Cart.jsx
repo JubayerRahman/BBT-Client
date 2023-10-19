@@ -9,7 +9,7 @@ const Cart = () => {
   const [defalutDialog, setDefaultDialog] = useState()
 
   const deleteFunc = id =>{
-    fetch(`http://localhost:5000/cart/${id}`,{
+    fetch(`https://assignment-10-server-three-chi.vercel.app/cart/${id}`,{
       method:"DELETE"
     })
     .then(res=> res.json())
@@ -25,21 +25,9 @@ const Cart = () => {
     })
   }
 
-  useEffect(()=>{
-    if(cartData.length = 0){
-      setDefaultDialog("flex text-center container mx-auto m-[50px]")
-    }
-    if(cartData.length>0){
-      setDefaultDialog("hidden")
-    }
-  },[cartDetails])
-
   console.log(cartDetails);
   return (
-    <div className='text-white'>
-      <div className={defalutDialog}>
-        <h1 className='text-center text-3xl text-white'>Cart is Empty</h1>
-      </div>
+    <div style={{minHeight:"100vh"}} className='text-white '>
       <div className=" m-[20px] grid grid-cols-1 md:grid-cols-3 gap-[20px]">
         {
           cartDetails.map(cart=>
@@ -52,7 +40,7 @@ const Cart = () => {
                 <p>{cart.price}</p>
               </div>
             </div>
-            <button onClick={()=>{deleteFunc(cart._id)}} className='btn text-red-400 text-white'>Delete</button>
+            <button onClick={()=>{deleteFunc(cart._id)}} className='btn bg-red-400 mt-[] text-white'>Delete</button>
           </div>)
         }
       </div>

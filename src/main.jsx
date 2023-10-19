@@ -32,17 +32,17 @@ const routes = createBrowserRouter([
       {
         path:"/updateproduct/:id",
         element:<PrivateRoutes><Updateproduct/></PrivateRoutes>,
-        loader:({params})=> fetch(`http://localhost:5000/products/${params.id}`)
+        loader:({params})=> fetch(`https://assignment-10-server-three-chi.vercel.app/products/${params.id}`)
       },
       {
         path:"/:id",
         element:<Brands/>,
-        loader:()=> fetch("http://localhost:5000/products")
+        loader:()=> fetch("https://assignment-10-server-three-chi.vercel.app/products")
       },
       {
         path:"/:id/:id",
         element: <PrivateRoutes><SingleProduct/></PrivateRoutes>,
-        loader:({params})=> fetch(`http://localhost:5000/products/${params.id}`)
+        loader:({params})=> fetch(`https://assignment-10-server-three-chi.vercel.app/products/${params.id}`)
       },
       {
         path:"/add-product",
@@ -51,7 +51,7 @@ const routes = createBrowserRouter([
       {
         path:"/cart",
         element:<PrivateRoutes><Cart/></PrivateRoutes>,
-        loader:()=> fetch("http://localhost:5000/cart")
+        loader:()=> fetch("https://assignment-10-server-three-chi.vercel.app/cart")
       },
       {
         path:"/log-in",

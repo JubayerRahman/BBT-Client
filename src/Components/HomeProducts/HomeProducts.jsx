@@ -1,19 +1,21 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import "./HomeProducts.css"
 import { Link, NavLink, useLoaderData } from "react-router-dom"
+import { AuthContent } from "../../Pages/AuthProvider/AuthProvider"
 
 
 
 const HomeProducts = () => {
     const brandData = useLoaderData()
+    const {mode} = useContext(AuthContent)
   return (
-    <div className="products">
-      <h1 className="text-center text-3xl md:text-5xl text-white mt-[50px] mb-[50px]">Brands we provide</h1>
+    <div className={`products %{mode}`}>
+      <h1 className="text-center text-3xl md:text-5xl mt-[50px] mb-[50px]">Brands we provide</h1>
         <div className="flex container flex-col md:flex-row md:w-[70%] mx-auto mb-[50px]">
-        <div className="flex md:w-[30%] p-[20px] flex-col text-2xl text-white brandNames">
+        <div className="flex md:w-[30%]  md:border-r-2  flex-col gap-[10px] text-3xl brandNames">
           {
             brandData.map(brand=> 
-            <a key={brand.id} href={`#${brand.id}`}>{brand.name}</a>
+            <a className="border-b-2 p-[15px] " key={brand.id} href={`#${brand.id}`}>{brand.name}</a>
             )
           }
         </div>

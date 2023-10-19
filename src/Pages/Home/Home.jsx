@@ -5,11 +5,11 @@ import SliderAdvertisement from '../../Components/SliderAdvertisement/SliderAdve
 import { AuthContent } from '../AuthProvider/AuthProvider'
 
 const Home = () => {
-  const {data} = useContext(AuthContent)
+  const {data, mode} = useContext(AuthContent)
 
   console.log(data);
   return (
-    <div>
+    <div className={'${mode}'}>
       <Banner/>
       <div className="">
         <div className="bg-black p-[20p]">

@@ -1,0 +1,24 @@
+:root{
+    --backgroundColor: #1D232A;
+    --textColor: white;
+    --aboutBg:black;
+    --aboutText: white;
+}
+.darkMode{
+    background-color: #1D232A;
+    color: white;
+    transition: all 0.4s ease-out;
+}
+
+.lightMode{
+    --backgroundColor: rgb(192, 181, 161);
+    --textColor: #1D232A;
+    --aboutBg:white;
+    --aboutText: #1D232A;
+    transition: all 0.4s ease-out;
+}
+
+.bbtMai{
+    background-color: var(--backgroundColor);
+    color: var(--textColor);
+}
