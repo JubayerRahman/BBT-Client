@@ -34,7 +34,7 @@ const ProductCard = ({car}) => {
     </div>
   </div>
 </div>
-<div className="flex md:hidden card bg-base-100 shadow-xl">
+<div className="flex md:hidden card bg-base-100 text-white shadow-xl">
   <figure><img src={Image}/></figure>
   <div className="card-body">
   <h2 className="card-title">Name: {name}</h2>
