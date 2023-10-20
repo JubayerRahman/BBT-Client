@@ -8,7 +8,6 @@ const Navbar = () => {
 
   const {user, SighOut}= useContext(AuthContent)
   const [modeIcon, setModeIcon]= useState("fa-solid fa-sun")
-  console.log(mode);
 
   const ModeSwap =()=>{
     if(modeIcon =="fa-solid fa-sun"){
@@ -39,7 +38,7 @@ const Navbar = () => {
       :
       <li className='block md:hidden'><NavLink to='/log-in' className=""><i className="fa-solid fa-right-to-bracket text-xl md:text-2xl"></i></NavLink></li>
     }
-    <button onClick={ModeSwap} className='flex md:hidden text-2xl'><i class={modeIcon}></i></button>
+    <button onClick={ModeSwap} className='flex md:hidden text-2xl'><i className={modeIcon}></i></button>
     </div>
   return (
     <div className={`p-[5px] md:p-[15px] mt-3 border-b-2 border-black`}>
@@ -80,7 +79,7 @@ const Navbar = () => {
         :
     <NavLink  to='/log-in' className=""><i className="fa-solid fa-right-to-bracket text-xl md:text-2xl"></i></NavLink>
       }
-      <button onClick={ModeSwap} className=' text-2xl'><i class={modeIcon}></i></button>
+      <button onClick={ModeSwap} className=' text-2xl'><i className={modeIcon}></i></button>
     </div>
   </div>
 </div>

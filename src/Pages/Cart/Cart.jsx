@@ -1,11 +1,15 @@
 import { data } from 'autoprefixer'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useLoaderData } from 'react-router-dom'
 import Swal from 'sweetalert2'
+import { AuthContent } from '../AuthProvider/AuthProvider'
 
 const Cart = () => {
   const cartData = useLoaderData()
-  const [cartDetails, setCartDetails] = useState(cartData)
+  const {user} = useContext(AuthContent)
+  const {email} = user
+  const YourCart = cartData.filter(cart=> cart.email == email)
+  const [cartDetails, setCartDetails] = useState(YourCart)
   const [defalutDialog, setDefaultDialog] = useState()
 
   const deleteFunc = id =>{
@@ -27,22 +31,22 @@ const Cart = () => {
 
   console.log(cartDetails);
   return (
-    <div style={{minHeight:"100vh"}} className='text-white '>
+    <div style={{minHeight:"100vh"}} className='text-white'>
       <div className=" m-[20px] grid grid-cols-1 md:grid-cols-3 gap-[20px]">
         {
           cartDetails.map(cart=>
-          <div className=' w-full  mt-[50px] mb-[50px] flex flex-col md:flex-row justify-between md:items-center border-2 rounded-xl p-[20px]' key={cart._id}>
-            <div className='flex flex-col md:flex-row gap-[15px] '>
-            <img className='w-[250px]  md:w-[150px] rounded-sm' src={cart.Image} alt={cart.name}/>
-              <div>
-                <h1>{cart.name}</h1>
-                <p>{cart.brandName}</p>
-                <p>{cart.price}</p>
+            <div className="card bg-base-100 shadow-xl shadow-[gray]">
+            <figure><img src={cart.Image} alt="Shoes" /></figure>
+            <div className="card-body">
+              <h2 className="card-title">Name: {cart.name}</h2>
+              <h2 className="card-title">price: {cart.price}</h2>
+              <div className="card-actions justify-start">
+              <button onClick={()=>{deleteFunc(cart._id)}} className='btn bg-red-400 mt-[] text-white'>Delete</button>
               </div>
             </div>
-            <button onClick={()=>{deleteFunc(cart._id)}} className='btn bg-red-400 mt-[] text-white'>Delete</button>
           </div>)
         }
+        
       </div>
     </div>
   )

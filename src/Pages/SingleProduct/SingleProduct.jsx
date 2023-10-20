@@ -1,13 +1,17 @@
+import { useContext } from "react"
 import { useLoaderData } from "react-router-dom"
 import Swal from "sweetalert2"
+import { AuthContent } from "../AuthProvider/AuthProvider"
 
 const SingleProduct = () => {
     const DataDetails= useLoaderData()
+    const {user}= useContext(AuthContent)
+    const {email} =  user
     const {Image, name, brandName, price, rating, shortDescription, type} = DataDetails
 
 
     const SavetoCart =()=>{
-      const DatatoSave = {Image, name, brandName,price}
+      const DatatoSave = {Image, name, brandName,price, email}
       console.log(DatatoSave);
         fetch("https://assignment-10-server-three-chi.vercel.app/cart", {
             method:"POST",
