@@ -6,12 +6,8 @@ import "../src/Theme.css"
 import { AuthContent } from './Pages/AuthProvider/AuthProvider'
 
 function App() {
-  const [count, setCount] = useState(0)
   const {mode} = useContext(AuthContent)
-  const lacation = useLocation()
-  useEffect(()=>{
-    window.scrollTo(0,0)
-  },[lacation])
+  
 
   return (
     <div className={`${mode} bbtMai`}>

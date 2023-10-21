@@ -41,7 +41,7 @@ const Navbar = () => {
     <button onClick={ModeSwap} className='flex md:hidden text-2xl'><i className={modeIcon}></i></button>
     </div>
   return (
-    <div className={`p-[5px] md:p-[15px] mt-3 border-b-2 border-black`}>
+    <div className={`p-[5px] md:p-[15px]  border-b-2 border-b-black`}>
       <div className="navbar">
   <div className="flex justify-between w-full md:navbar-start">
   <Link to="/">

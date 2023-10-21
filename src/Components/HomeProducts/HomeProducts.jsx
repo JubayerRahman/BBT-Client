@@ -9,20 +9,20 @@ const HomeProducts = () => {
     const brandData = useLoaderData()
     const {mode} = useContext(AuthContent)
   return (
-    <div className={`products %{mode}`}>
+    <div className={`products ${mode}`}>
       <h1 className="text-center text-3xl md:text-5xl mt-[50px] mb-[50px]">Brands we provide</h1>
-        <div className="flex container flex-col md:flex-row md:w-[70%] mx-auto mb-[50px]">
-        <div className="flex md:w-[30%]  md:border-r-2  flex-col gap-[10px] text-3xl brandNames">
+        <div className="flex  flex-col justify-between md:flex-row  md:m-[20px] mb-[50px]">
+        <div className="flex md:w-[25%]  md:border-r-2  flex-col gap-[10px] text-3xl brandNames">
           {
             brandData.map(brand=> 
             <a className="border-b-2 p-[15px] " key={brand.id} href={`#${brand.id}`}>{brand.name}</a>
             )
           }
         </div>
-        <div className="brandCards md:w-[75%] h-[500px] overflow-y-scroll scroll-m-5 p-[10px] gap-5">
+        <div className="brandCards flex flex-col  items-center container mx-auto h-[500px] overflow-y-scroll scroll-m-5 p-[10px] gap-5">
         {
             brandData.map(brand => 
-            <div key={brand.id} id={brand.id} className="card bg-base-100 shadow-2xl shadow-gray-500 mb-[50px]">
+            <div key={brand.id} id={brand.id} className="card w-full md:w-[60%] bg-base-100 shadow-2xl shadow-gray-500 mb-[50px]">
             <figure className="h-[300px] bg-white" ><img src={brand.image} alt={brand.name}/></figure>
             <div className="text-white p-[30px] flex gap-5 items-center">
                 <div>

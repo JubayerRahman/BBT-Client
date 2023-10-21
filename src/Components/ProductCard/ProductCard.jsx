@@ -10,7 +10,7 @@ const ProductCard = ({car}) => {
   }
   return (
     <div className='m-[20px] md:m-[0px]'>
-      <div className="hidden md:flex card card-side bg-black shadow-xl">
+      <div className="hidden md:flex card card-side text-white bg-black shadow-xl">
   <figure className='w-[100%] md:w-1/2 ' 
   style={
     {backgroundImage:`url(${Image})`, 

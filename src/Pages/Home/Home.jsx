@@ -1,13 +1,36 @@
 import React, { useContext } from 'react'
 import Banner from '../../Components/Banner/Banner'
 import HomeProducts from '../../Components/HomeProducts/HomeProducts'
-import SliderAdvertisement from '../../Components/SliderAdvertisement/SliderAdvertisement'
 import { AuthContent } from '../AuthProvider/AuthProvider'
+import "./Home.css"
+import Swal from 'sweetalert2'
 
 const Home = () => {
   const {data, mode} = useContext(AuthContent)
 
-  console.log(data);
+  const formSubmit = e =>{
+    e.preventDefault()
+    const name = e.target.name.value
+    const email = e.target.email.value
+    const phone = e.target.phone.value
+    const car = e.target.car.value
+    if(name =="" || email ==""|| phone=="" || car == ""){
+      Swal.fire({
+        title:"fill all the data required",
+        icon:"error"
+      })
+    }
+    else{
+      Swal.fire({
+        title:"Request send successfully",
+        icon:"success"
+      })
+      e.target.name.value=""
+      e.target.email.value =""
+      e.target.phone.value =""
+      e.target.car.value=""
+    }
+  }
   return (
     <div className={'${mode}'}>
       <Banner/>
@@ -42,7 +65,20 @@ const Home = () => {
         </div>
       </div>
       <HomeProducts/>
-      <SliderAdvertisement/>
+      <div className='contactSection flex justify-center'>
+        <div className="container mx-auto p-[20px] justify-center flex flex-col md:flex-row text-black">
+          <div className='whiteDim p-[20px] w-full md:w-1/2'>
+            <form onSubmit={formSubmit} className='homeForm flex flex-col items-center w-full gap-3'>
+              <h1 className='text-2xl text-center text-white'>Book a meeting</h1>
+              <input className='.homeForm bg-transparent border-b-2 border-black p-[10px] text-xl outline-none w-[80%]' type="text" name="name" placeholder='Your Name' id="" />
+              <input className='bg-transparent border-b-2 border-black p-[10px] text-xl outline-none w-[80%]' type="text" name="email" placeholder='Your Email' id="" />
+              <input className='bg-transparent border-b-2 border-black p-[10px] text-xl outline-none w-[80%]' type="number" name="phone" placeholder='Your Phone Number' id="" />
+              <input className='bg-transparent border-b-2 border-black p-[10px] text-xl outline-none w-[80%]' type="text" name="car" placeholder='Current Car' id="" />
+              <button className='btn bg-white hover:bg-white text-xl rounded-none md:w-1/2 text-black'>Book now</button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
