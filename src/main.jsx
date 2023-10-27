@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
@@ -10,7 +10,7 @@ import Cart from './Pages/Cart/Cart.jsx'
 import Registration from './Pages/Registration/Registration.jsx'
 import About from './Pages/About/About.jsx'
 import Brands from './Pages/Brands/Brands.jsx'
-import AuthProvider from './Pages/AuthProvider/AuthProvider.jsx'
+import AuthProvider, { AuthContent } from './Pages/AuthProvider/AuthProvider.jsx'
 import PrivateRoutes from './Components/PrivateRoutes/PrivateRoutes.jsx'
 import SingleProduct from './Pages/SingleProduct/SingleProduct.jsx'
 import Updateproduct from './Pages/UpdateProduct/Updateproduct.jsx'
@@ -39,7 +39,7 @@ const routes = createBrowserRouter([
       {
         path:"/:id",
         element:<Brands/>,
-        loader:()=> fetch("https://assignment-10-server-three-chi.vercel.app/products")
+        // loader:({params})=> fetch(`https://assignment-10-server-three-chi.vercel.app/products?brand=${params}.id`)
       },
       {
         path:"/:id/:id",
@@ -53,7 +53,7 @@ const routes = createBrowserRouter([
       {
         path:"/cart",
         element:<PrivateRoutes><Cart/></PrivateRoutes>,
-        loader:()=> fetch("https://assignment-10-server-three-chi.vercel.app/cart")
+        // loader:()=> fetch(`https://assignment-10-server-three-chi.vercel.app/cart?email=${user?.email}`)
       },
       {
         path:"/log-in",

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import "./Login.css"
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom'
 import { AuthContent } from '../AuthProvider/AuthProvider'
 import Swal from 'sweetalert2'
 

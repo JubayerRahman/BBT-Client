@@ -5,14 +5,14 @@ import ProductCard from '../../Components/ProductCard/ProductCard'
 
 const Brands = () => {
   const pathName = useParams().id
-  const carData = useLoaderData()
-  console.log(carData);
+  console.log(pathName);
   const [brandShow, setBrandShow] = useState([])
   const [productShow, setProductShow] = useState("flex p-[50px] text-3xl text-white")
-  const [noDataDialog, setnoDataDialog] = useState()
+  // const [noDataDialog, setnoDataDialog] = useState()
   useEffect(()=>{
-    const SelectCars = carData.filter(car => car.brandName ===pathName)
-    setBrandShow(SelectCars)
+    fetch(`https://assignment-10-server-three-chi.vercel.app/products?brand=${pathName}`)
+    .then(res => res.json())
+    .then(data => setBrandShow(data))
   },[])
   console.log(brandShow);
 

@@ -7,6 +7,7 @@ const PrivateRoutes = ({children}) => {
     // console.log(childern);
     const{user, Loader} = useContext(AuthContent)
     const locationtoGo = useLocation()
+    
 
     if(Loader){
         return (
@@ -19,7 +20,7 @@ const PrivateRoutes = ({children}) => {
     if(user == null){
         return <Navigate state={locationtoGo.pathname} to="/log-in"/>
     }
-  return children
+  return children 
 }
 
 export default PrivateRoutes

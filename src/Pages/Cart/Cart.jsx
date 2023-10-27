@@ -5,12 +5,18 @@ import Swal from 'sweetalert2'
 import { AuthContent } from '../AuthProvider/AuthProvider'
 
 const Cart = () => {
-  const cartData = useLoaderData()
+  // const cartData = useLoaderData()
   const {user} = useContext(AuthContent)
-  const {email} = user
-  const YourCart = cartData.filter(cart=> cart.email == email)
-  const [cartDetails, setCartDetails] = useState(YourCart)
+  // const {email} = user
+  // const YourCart = cartData.filter(cart=> cart.email == email)
+  const [cartDetails, setCartDetails] = useState([])
   const [defalutDialog, setDefaultDialog] = useState()
+
+  useEffect(()=>{
+    fetch(`https://assignment-10-server-three-chi.vercel.app/cart?email=${user?.email}`)
+    .then(res=> res.json())
+    .then(data => setCartDetails(data))
+  },[])
 
   const deleteFunc = id =>{
     fetch(`https://assignment-10-server-three-chi.vercel.app/cart/${id}`,{
