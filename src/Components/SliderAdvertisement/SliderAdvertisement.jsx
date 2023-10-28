@@ -37,12 +37,11 @@ const SliderAdvertisement = () => {
       showDots={false}
       responsive={responsive}
       infinite={true}
-      autoPlaySpeed={500}
+      autoPlaySpeed={1000}
       keyBoardControl={true}
       customTransition="all .5 ease-out"
-      transitionDuration={500}
+      transitionDuration={1000}
       containerClass="carousel-container"
-      // removeArrowOnDeviceType={["tablet", "mobile"]}
       dotListClass="custom-dot-list-style"
       itemClass="carousel-item-padding-40-px" >
         <div className='w-full h-[300px] flex justify-center items-center'>

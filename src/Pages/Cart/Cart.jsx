@@ -7,15 +7,18 @@ import { AuthContent } from '../AuthProvider/AuthProvider'
 const Cart = () => {
   // const cartData = useLoaderData()
   const {user} = useContext(AuthContent)
-  // const {email} = user
-  // const YourCart = cartData.filter(cart=> cart.email == email)
   const [cartDetails, setCartDetails] = useState([])
-  const [defalutDialog, setDefaultDialog] = useState()
+  const [defalutDialog, setDefaultDialog] = useState("hidden")
 
   useEffect(()=>{
     fetch(`https://assignment-10-server-three-chi.vercel.app/cart?email=${user?.email}`)
     .then(res=> res.json())
-    .then(data => setCartDetails(data))
+    .then(data => {
+      if(data.length == 0){
+        setDefaultDialog('flex p-[50px] text-3xl text-white')
+      }
+      setCartDetails(data)
+    })
   },[])
 
   const deleteFunc = id =>{
@@ -31,6 +34,10 @@ const Cart = () => {
         })
         const nowCartData = cartDetails.filter(cart => cart._id !==id)
         setCartDetails(nowCartData)
+        console.log(cartDetails.length);
+        if (cartDetails.length == 1) {
+          setDefaultDialog('flex p-[50px] text-3xl text-white')
+        }
       }
     })
   }
@@ -38,6 +45,9 @@ const Cart = () => {
   console.log(cartDetails);
   return (
     <div style={{minHeight:"100vh"}} className='text-white'>
+      <div>
+        <h1 className={defalutDialog} ><span className='text-[red] mr-[5px]'>|</span> Your cart is empty</h1>
+      </div>
       <div className=" m-[20px] grid grid-cols-1 md:grid-cols-3 gap-[20px]">
         {
           cartDetails.map(cart=>
