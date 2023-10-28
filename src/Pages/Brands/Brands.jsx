@@ -7,21 +7,28 @@ const Brands = () => {
   const pathName = useParams().id
   console.log(pathName);
   const [brandShow, setBrandShow] = useState([])
-  const [productShow, setProductShow] = useState("flex p-[50px] text-3xl text-white")
+  const [productShow, setProductShow] = useState("hidden")
   // const [noDataDialog, setnoDataDialog] = useState()
   useEffect(()=>{
     fetch(`https://assignment-10-server-three-chi.vercel.app/products?brand=${pathName}`)
     .then(res => res.json())
-    .then(data => setBrandShow(data))
+    .then(data => {
+      setBrandShow(data)
+      if (data.length ==0) {
+        setProductShow("flex p-[50px] text-3xl text-white")
+        // setProductShow("hidden")
+      }
+      console.log(data);
+    })
   },[])
-  console.log(brandShow);
+  // console.log(brandShow);
 
- useEffect(()=>{
-  console.log(brandShow.length);
-  if(brandShow.length>0){
-    setProductShow("hidden")
-  }
- },[brandShow])
+//  useEffect(()=>{
+//   console.log(brandShow.length);
+//   if(brandShow.length>0){
+//     setProductShow("hidden")
+//   }
+//  },[brandShow])
 
   
   
